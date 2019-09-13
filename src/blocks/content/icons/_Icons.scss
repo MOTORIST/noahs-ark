@@ -1,0 +1,63 @@
+/**
+* Use:
+* <svg class="icon">
+*    <use xlink:href="#cat" />
+* </svg>
+*
+* #panda
+* #lion
+* #monkey
+* #unicorn
+* #pig
+* #octopus
+* #fox
+* #cat
+* #dog
+* #rodent
+* #bear
+* #ladybug
+* #penguin
+* #bee
+* #dolphin
+* #cow
+* #deer
+* #fish
+* #wolf
+* #owl
+* #chicken
+* #snail
+* #turkey
+* #whale
+* #eagle
+* #hen
+* #rabbit
+* #zoo
+* #insect
+* #lizard
+* #lamb
+* #hamster
+* #zoo-1
+* #whale-1
+* #frog
+* #koala
+*/
+.Icon {
+  display: inline-block;
+  width: 25px;
+  height: 25px;
+
+  &_size_xxxl {
+    width: 75px;
+    height: 75px;
+  }
+
+  &_size_xxxxl {
+    width: 110px;
+    height: 110px;
+  }
+
+  &_response {
+    width: 90%;
+    height: 90%;
+  }
+}
