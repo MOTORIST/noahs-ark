@@ -6,7 +6,7 @@ const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports = {
-  entry: ['./src/index.js', './src/styles/main.scss'],
+  entry: ['./src/index.js', './src/blocks/main.scss'],
   output: {
     filename: 'bundle.[contenthash].js',
     path: path.resolve(__dirname, 'public'),
@@ -38,6 +38,19 @@ module.exports = {
   ],
   module: {
     rules: [
+      {
+        test: /\.js/,
+        exclude: /node_modules/,
+        use: {
+          loader: 'babel-loader',
+          options: {
+            presets: ['@babel/preset-env'],
+            plugins: [
+              ['@babel/plugin-proposal-class-properties', { loose: true }],
+            ],
+          },
+        },
+      },
       {
         test: /\.scss$/,
         use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader'],

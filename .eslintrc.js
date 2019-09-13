@@ -6,6 +6,19 @@ module.exports = {
     es6: true,
     node: true,
     browser: true,
+    jest: true,
+  },
+  parser: 'babel-eslint',
+  parserOptions: {
+    sourceType: 'module',
+    ecmaVersion: 2017,
+    allowImportExportEverywhere: false,
+    ecmaFeatures: {
+      experimentalObjectRestSpread: true,
+    },
+    babelOptions: {
+      configFile: '.babelrc',
+    },
   },
   extends: ['airbnb-base', 'prettier'],
   settings: {
@@ -18,6 +31,8 @@ module.exports = {
   plugins: ['prettier'],
   rules: {
     'prettier/prettier': 'error',
+    'no-param-reassign': 0,
+    'no-underscore-dangle': 0,
     // 'linebreak-style': 0,
   },
 };
