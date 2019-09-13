@@ -1,0 +1,26 @@
+@import '../../themes/settings';
+
+.Btn {
+  @include themify($themes) {
+    background: themed(flipCardCoverColor);
+  }
+
+  box-shadow: 1px 1px 4px 0px rgba(0, 0, 0, 0.5);
+  color: #fff;
+  
+  height: 40px;
+  font-size: 1.25rem;
+
+  border: none;
+  border-radius: 9px;
+  margin: 0;
+  padding: 0 30px;
+  overflow: visible;
+  line-height: normal;
+  outline: none;
+  cursor: pointer;
+
+  &:active {
+    box-shadow: inset 1px 1px 2px 1px rgba(0, 0, 0, 0.5);
+  }
+}
