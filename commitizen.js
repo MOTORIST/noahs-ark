@@ -17,7 +17,7 @@ module.exports = {
     },
     { value: 'test', name: 'test: Build test' },
   ],
-  scopes: [{ name: 'components' }],
+  scopes: [{ name: 'components' }, { name: 'styles' }],
 
   /*
   scopeOverrides: {
