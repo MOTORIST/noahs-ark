@@ -1,0 +1,43 @@
+.Game {
+  box-sizing: border-box;
+  max-width: 1000px;
+
+  &-Battlefield {
+    $columns: 4;
+    $col-gap: 25px;
+    $row-gap: 25px;
+
+    box-sizing: border-box;
+    display: grid;
+    grid-template-columns: repeat(#{$columns}, 1fr);
+    grid-row-gap: $row-gap;
+    grid-column-gap: $col-gap;
+  }
+
+  &_low {
+    max-width: 600px;
+  }
+
+  &_low > &-Battlefield {
+    $columns: 4;
+    grid-template-columns: repeat(#{$columns}, 1fr);
+  }
+
+  &_medium {
+    max-width: 800px;
+  }
+
+  &_medium > &-Battlefield {
+    $columns: 6;
+    grid-template-columns: repeat(#{$columns}, 1fr);
+  }
+
+  &_hard {
+    max-width: 1000px;
+  }
+
+  &_hard > &-Battlefield {
+    $columns: 9;
+    grid-template-columns: repeat(#{$columns}, 1fr);
+  }
+}
