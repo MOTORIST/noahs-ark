@@ -1,14 +1,83 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-    <link rel="shortcut icon" href="favicon.png" type="image/png">
+    <title>Noah's ark</title>
     <link rel="stylesheet" href="styles.css">
 </head>
-<body>
-    <h1 class="root">Hello world!</h1>
+
+<body class="Theme Theme_light">
+    <header class="PageHeader">
+        <h1 class="Text_xxl">Noah's ark</h1>
+    </header>
+
+    <div id="game" class="PageGame Game Game_low"></div>
+
+    <div class="PageTimer">
+        <div id="timer" class="Text_xl"></div>
+    </div>
+
+    <div id="modal-win" class="Modal">
+        <div class="Modal-Content Modal-Content_center">
+            <div class="Text_xxxl Text_weight_xl Text_animation_bounce">Win</div>
+            <button class="Btn" data-new-game="true" data-dismiss="modal">Play again</button>
+        </div>
+    </div>
+
+    <div id="modal-lose" class="Modal">
+        <div class="Modal-Content Modal-Content_center">
+            <div class="Text_xxxl Text_weight_xl Text_animation_bounce">Lose</div>
+            <button class="Btn" data-new-game="true" data-dismiss="modal">Try again</button>
+        </div>
+    </div>
+
+    <ul class="ThemeSwitch">
+        <li class="ThemeSwitch-Item ThemeSwitch-Item_style_light ThemeSwitch-Item_active" data-theme="light"></li>
+        <li class="ThemeSwitch-Item ThemeSwitch-Item_style_dark" data-theme="dark"></li>
+        <li class="ThemeSwitch-Item ThemeSwitch-Item_style_pink" data-theme="pink"></li>
+        <li class="ThemeSwitch-Item ThemeSwitch-Item_style_purple" data-theme="purple"></li>
+        <li class="ThemeSwitch-Item ThemeSwitch-Item_style_blue" data-theme="blue"></li>
+    </ul>
+
+    <div id="complexity" class="ComplexitySwitch">
+        <div class="FormField">
+            <div class="Radio">
+                <input class="Radio-Input" type="radio" name="complexity" value="complexityLow" id="complexityLow"
+                    checked>
+                <div class="Radio-Icon">
+                    <div class="Radio-IconOuter"></div>
+                    <div class="Radio-IconInner"></div>
+                </div>
+            </div>
+            <label for="complexityLow">low</label>
+        </div>
+        <div class="FormField">
+            <div class="Radio">
+                <input class="Radio-Input" type="radio" name="complexity" value="complexityMedium"
+                    id="complexityMedium">
+                <div class="Radio-Icon">
+                    <div class="Radio-IconOuter"></div>
+                    <div class="Radio-IconInner"></div>
+                </div>
+            </div>
+            <label for="complexityMedium">medium</label>
+        </div>
+        <div class="FormField">
+            <div class="Radio">
+                <input class="Radio-Input" type="radio" name="complexity" value="complexityHard" id="complexityHard">
+                <div class="Radio-Icon">
+                    <div class="Radio-IconOuter"></div>
+                    <div class="Radio-IconInner"></div>
+                </div>
+            </div>
+            <label for="complexityHard">hard</label>
+        </div>
+    </div>
+
+    <%= require('html-loader?root=.&minimize=true&interpolate!./svg-sprite.html') %>
 </body>
+
 </html>
