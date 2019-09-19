@@ -6,22 +6,28 @@ const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports = {
-  entry: ['./src/index.js', './src/blocks/main.scss'],
+  entry: {
+    web: ['./src/index.js', './src/blocks/main.scss'],
+    electron: ['./src/electron/index.js', './src/blocks/main.scss'],
+  },
   output: {
-    filename: 'bundle.[contenthash].js',
     path: path.resolve(__dirname, 'public'),
+    filename: '[name]/bundle.js?[contenthash]',
   },
   devServer: {
     contentBase: path.join(__dirname, 'public'),
+    index: 'web/index.html',
     compress: true,
     port: 9000,
   },
+  target: 'electron-main',
   plugins: [
     new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
       template: path.resolve(__dirname, 'src', 'index.html'),
-      filename: 'index.html',
+      filename: 'web/index.html',
       inject: 'body',
+      chunks: ['web'],
       favicon: path.resolve(__dirname, 'src', 'img', 'favicon.png'),
       minify: {
         collapseWhitespace: true,
@@ -67,9 +73,9 @@ module.exports = {
           {
             loader: 'file-loader',
             options: {
-              name: '[name].[ext]',
-              publicPath: 'img',
+              name: '[path][name].[ext]',
               outputPath: 'img',
+              publicPath: 'img',
               useRelativePath: true,
             },
           },

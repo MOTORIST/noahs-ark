@@ -2,7 +2,7 @@
   "name": "noahs-ark",
   "version": "0.0.1",
   "description": "Game on JS",
-  "main": "index.js",
+  "main": "./public/electron/bundle.js",
   "author": "Gerasin Ivan",
   "license": "MIT",
   "private": false,
@@ -10,7 +10,8 @@
     "start": "webpack-dev-server --open --mode development",
     "build": "webpack --mode production",
     "test": "jest",
-    "commit": "git-cz"
+    "commit": "git-cz",
+    "start:el": "webpack --mode production && electron ."
   },
   "jest": {
     "verbose": false
