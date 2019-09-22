@@ -1,28 +1,14 @@
-<center>
+# Noah's ark
 
-  ![Noah's ark](icons/icon-256.png)
-
-</center>
-
-<h3 align="center">Noah's ark</h3>
-
-<div align="center">
+![Noah's ark](icons/icon-256.png)
 
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](/LICENSE)
 
-</div>
-
 ---
 
-<p align="center">
-  Desktop and web game built with vanilla js and Electron. 
-</p>
+Desktop and web game built with vanilla js and Electron.
 
-<center>
-
-  ![Noah's ark](screenshots/screenshot-01.png)
-
-</center>
+![Noah's ark](screenshots/screenshot-01.png)
 
 ## 📝 Table of Contents
 
