@@ -4,6 +4,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const CopyPlugin = require('copy-webpack-plugin');
 
 module.exports = {
   entry: {
@@ -15,9 +16,9 @@ module.exports = {
     filename: '[name]/bundle.js?[contenthash]',
   },
   devServer: {
-    contentBase: path.join(__dirname, 'public'),
+    contentBase: path.join(__dirname, 'public', 'web'),
     index: 'web/index.html',
-    compress: true,
+    compress: false,
     port: 9000,
   },
   target: 'electron-main',
@@ -28,7 +29,6 @@ module.exports = {
       filename: 'web/index.html',
       inject: 'body',
       chunks: ['web'],
-      favicon: path.resolve(__dirname, 'src', 'img', 'favicon.png'),
       minify: {
         collapseWhitespace: true,
         removeComments: true,
@@ -39,8 +39,9 @@ module.exports = {
       },
     }),
     new MiniCssExtractPlugin({
-      filename: 'styles.css',
+      filename: 'web/styles.css',
     }),
+    new CopyPlugin([{ from: 'icons', to: 'web/icons' }]),
   ],
   module: {
     rules: [

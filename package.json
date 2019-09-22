@@ -1,9 +1,10 @@
 {
   "name": "noahs-ark",
-  "version": "0.0.1",
-  "description": "Game on JS",
+  "version": "1.0.0",
+  "description": "Help Noah find pairs of animals for the ark.",
   "main": "./public/electron/bundle.js",
-  "author": "Gerasin Ivan",
+  "author": "Gerasin Ivan <webartmotor@gmail.com>",
+  "homepage": "https://www.mysite.com",
   "license": "MIT",
   "private": false,
   "scripts": {
@@ -11,7 +12,8 @@
     "build": "webpack --mode production",
     "test": "jest",
     "commit": "git-cz",
-    "start:el": "webpack --mode production && electron ."
+    "start:el": "webpack --mode production && electron .",
+    "build:el": "webpack --mode production && electron-builder"
   },
   "jest": {
     "verbose": false
@@ -29,6 +31,20 @@
       "commit-msg": "commitlint -E HUSKY_GIT_PARAMS -g './commitlint.js'"
     }
   },
+  "build": {
+    "appId": "com.electron.noahsark",
+    "productName": "Noah's ark",
+    "linux": {
+      "desktop": "Noah's ark",
+      "category": "Game",
+      "icon": "icons/icon-512.png",
+      "target": [
+        "AppImage",
+        "snap",
+        "deb"
+      ]
+    }
+  },
   "devDependencies": {
     "@babel/core": "^7.5.5",
     "@babel/plugin-proposal-class-properties": "^7.5.5",
@@ -40,6 +56,7 @@
     "babel-loader": "^8.0.6",
     "clean-webpack-plugin": "^3.0.0",
     "commitizen": "^4.0.3",
+    "copy-webpack-plugin": "^5.0.4",
     "css-loader": "^3.1.0",
     "cz-customizable": "^6.2.0",
     "electron": "^6.0.9",

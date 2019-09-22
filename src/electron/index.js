@@ -5,8 +5,12 @@ import path from 'path';
 let win;
 
 function createWindow() {
+  const icon = path.join(app.getAppPath(), 'icons', 'icon-512.png');
+
   win = new BrowserWindow({
     show: false,
+    icon,
+    backgroundColor: '#cfd0cf',
     webPreferences: {
       nodeIntegration: true,
     },
